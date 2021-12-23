@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block title %}
+    <title>Delete Confirm Page</title>
+{% endblock %}
+{% block content %}
+    <h1 style="text-align:center">Confirm Delete</h1>
+    <div class="container">
+        <form method="post" class="jumbotron" style="margin:auto;width:60%">
+            {% csrf_token %}
+            <p>Are you sure to delete the details of  <span style="font-weight:bold;">{{laptop.company}} {{laptop.model_name}}?</span></p>
+            <a href="{% url 'delete_laptop' laptop.id %}"><button class="btn btn-danger">Delete</button></a>
+            <a href="{% url 'show_laptop' %}"><button type="button" class="btn btn-primary">Cancel</button></a>
+        </form>
+    </div>
+{% endblock %}
